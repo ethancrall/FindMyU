@@ -123,8 +123,19 @@ body, html {
     margin: 40px;
 }
 
-.heart-icon, .x-icon {
-    font-size: 50px;
+.heart-icon {
+    font-size: 55px;
+    color: #1c1c84;
+}
+
+.star-icon {
+    margin-bottom: 8px;
+    font-size: 63px;
+    color: #1c1c84;
+}
+
+.x-icon {
+    font-size: 70px;
     color: #1c1c84;
 }
 
