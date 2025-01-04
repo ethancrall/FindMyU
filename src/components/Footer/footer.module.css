@@ -1,0 +1,11 @@
+.footer {
+    display: flex;
+    justify-content: left;
+    padding-left: 20px;
+    background-color: var(--navy-blue);
+    color: white;
+}
+
+.linkedin {
+    color: white;
+}
