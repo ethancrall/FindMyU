@@ -21,6 +21,7 @@
 .logo {
     height: 60px;
     width: 200px;
+    border-radius: 16px;
 }
 
 .logo:hover {

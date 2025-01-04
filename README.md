@@ -1,4 +1,4 @@
-<img src="/public/FindMyULogo.png" alt="FindMyU Logo"></img>
+<img src="/public/FindMyULogo.jpg" alt="FindMyU Logo"></img>
 
 # About
 Finding the <b>right</b> college is hard. You have to consider academic programs,

@@ -16,7 +16,7 @@ export default function Navbar() {
         <div className={styles.navbarContainer}>
             <nav className={styles.navbar}>
                 <span>
-                    <Image src="/FindMyULogo.png" alt="FindMyU Logo" className={styles.logo} width={200} height={60} onClick={() => location.href = '/'} />
+                    <img src="/FindMyULogo.jpg" alt="FindMyU Logo" className={styles.logo} width={200} height={60} onClick={() => location.href = '/'} />
                 </span>
                 <span className={styles.sidebarLogo} onClick={openNav}>&#9776;</span>
             </nav>
