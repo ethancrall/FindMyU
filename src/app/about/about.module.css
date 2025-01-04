@@ -1,0 +1,38 @@
+.aboutHeader {
+    margin-left: 15px;
+    margin-bottom: -15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.findmyu {
+    color: var(--navy-blue);
+    margin-left: 8px;
+}
+
+.aboutParagraph {
+    font-size: 20px;
+    text-indent: 30px;
+    line-height: 28px;
+    margin: 25 50;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30 0;
+}
+
+.graduate {
+    width: 65vw;
+}
+
+.ethan {
+    width: 50vw;
+}
+
+.linkedin {
+    color: black;
+}
