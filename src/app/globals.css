@@ -2,19 +2,38 @@
 
 :root {
   --navy-blue: #1c1c84;
+  --primary-color: #1a73e8;
+  --dark-gray: #333333;
+  --light-gray: #f4f4f4;
+  --white: #ffffff;
+} 
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #4B4B4B;
+    --foreground: #ededed;
+  }
 }
 
-* {
-  font-family: 'poppins', sans-serif;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100vw;
 }
 
 body {
-  padding-top: 97px;
+  color: var(--vol-orange);
+  background: #FFFFFF;
+  font-family: 'poppins', sans-serif;
 }
 
-body,
-html {
-    font-family: sans-serif;
-    height: 100%;
-    margin: 0;
+h1 {
+  font-weight: bold;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }

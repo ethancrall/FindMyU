@@ -22,6 +22,7 @@
     height: 60px;
     width: 200px;
     border-radius: 16px;
+    margin-left: 10px;
 }
 
 .logo:hover {
@@ -29,6 +30,7 @@
 }
 
 .sidebarLogo {
+    margin-right: 30px;
     font-size: 30px;
     cursor: pointer;
     color: white;
