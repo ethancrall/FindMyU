@@ -1,8 +1,6 @@
 "use client";
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './login.module.css'
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 export default function LoginRegister() {
     const [currentImage, setCurrentImage] = useState(0);
@@ -56,21 +54,21 @@ export default function LoginRegister() {
         return () => clearInterval(interval);
     }, []);
 
-//   const showAlert = (message) => {
-//     const alertContainer = document.getElementById('alert-container');
-//     const alertMessage = document.getElementById('alert-message');
+    const showAlert = (message) => {
+        const alertContainer = document.getElementById('alert-container');
+        const alertMessage = document.getElementById('alert-message');
 
-//     alertMessage.textContent = message;
-//     alertContainer.classList.remove('hidden');
+        alertMessage.textContent = message;
+        alertContainer.classList.remove(styles.hidden);
 
-//     setTimeout(() => {
-//       alertContainer.classList.add('hidden');
-//     }, 10000);
+        setTimeout(() => {
+            alertContainer.classList.add(styles.hidden);
+        }, 1000000);
 
-//     document.getElementById('alert-close').addEventListener('click', () => {
-//       alertContainer.classList.add('hidden');
-//     });
-//   };
+        document.getElementById('alert-close').addEventListener('click', () => {
+            alertContainer.classList.add(styles.hidden);
+        }, { once: true });
+    };
 
     const toggleActive = (active) => {
         const loginBar = document.getElementsByClassName('.loginToggleBar');
@@ -106,10 +104,10 @@ export default function LoginRegister() {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        // if (!username || !password) {
-        //     showAlert('Username and password are both required.');
-        //     return;
-        // }
+        if (!username || !password) {
+            showAlert('Username and password are both required.');
+            return;
+        }
 
         if(rememberMe) {
             localStorage.setItem('username', username)
@@ -149,6 +147,15 @@ export default function LoginRegister() {
     return (
         <>
             <div className={styles.container}>
+                <div id="alert-container" className={`${styles.alert} ${styles.hidden}`}>
+                    <span id="alert-message"></span>
+                    <button className={styles.alertClose} id="alert-close">
+                        <svg className={styles.closeButton} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
                 <a href="/" className={styles.backToHome}>
                     <svg className={styles.arrow} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
@@ -187,13 +194,19 @@ export default function LoginRegister() {
                         <img className={styles.logo} src="/FindMyULogo.jpg" alt="FindMyU Logo" />
                         <h1 className={styles.loginTitle}>Login</h1>
                         <form className={styles.loginForm} onSubmit={handleLogin}>
-                            <input className={styles.loginInput} type="text" name="username" placeholder="Username" required />
+                            <input 
+                                className={styles.loginInput} 
+                                type="text" 
+                                name="username" 
+                                placeholder="Username" 
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
                             <input 
                                 className={styles.loginInput} 
                                 type="password"
                                 name="password" 
                                 placeholder="Password" 
-                                required 
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                             <div className={styles.rememberForget}>
                                 <label>
@@ -214,10 +227,30 @@ export default function LoginRegister() {
                         <img className={styles.logo} src="/FindMyULogo.jpg" alt="FindMyU Logo" />
                         <h1 className={styles.registerTitle}>Register</h1>
                         <form className={styles.registerForm} onSubmit={handleRegister}>
-                            <input className={styles.registerInput} type="text" name="fullName" placeholder="Full Name" required />
-                            <input className={styles.registerInput} type="email" name="email" placeholder="Email" required />
-                            <input className={styles.registerInput} type="text" name="username" placeholder="Username" required />
-                            <input className={styles.registerInput} type="password" name="password" placeholder="Password" required />
+                            <input 
+                                className={styles.registerInput} 
+                                type="text" 
+                                name="fullName"
+                                placeholder="Full Name"  
+                            />
+                            <input 
+                                className={styles.registerInput} 
+                                type="email" 
+                                name="email" 
+                                placeholder="Email" 
+                            />
+                            <input 
+                                className={styles.registerInput} 
+                                type="text" 
+                                name="username" 
+                                placeholder="Username"
+                            />
+                            <input 
+                                className={styles.registerInput} 
+                                type="password" 
+                                name="password" 
+                                placeholder="Password" 
+                            />
 
                             <button className={styles.registerButton} type="submit">Register</button>
                         </form>
