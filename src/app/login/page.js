@@ -8,6 +8,7 @@ export default function LoginRegister() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const [loginStyle, setLoginStyle] = useState({
         backgroundColor: 'var(--navy-blue)',
         color: 'var(--white)',
@@ -40,6 +41,7 @@ export default function LoginRegister() {
     useEffect(() => {
         const storedUsername = localStorage.getItem('username');
         const storedPassword = localStorage.getItem('password');
+
         if(storedUsername && storedPassword) {
             setUsername(storedUsername);
             setPassword(storedPassword);
@@ -196,16 +198,16 @@ export default function LoginRegister() {
                         <form className={styles.loginForm} onSubmit={handleLogin}>
                             <input 
                                 className={styles.loginInput} 
-                                type="text" 
-                                name="username" 
+                                type="text"  
                                 placeholder="Username" 
+                                value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                             />
                             <input 
                                 className={styles.loginInput} 
                                 type="password"
-                                name="password" 
                                 placeholder="Password" 
+                                value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                             <div className={styles.rememberForget}>
@@ -247,10 +249,19 @@ export default function LoginRegister() {
                             />
                             <input 
                                 className={styles.registerInput} 
-                                type="password" 
+                                type={showPassword ? "text" : "password"}
                                 name="password" 
                                 placeholder="Password" 
                             />
+                            <div className={styles.togglePasswordContainer}>
+                                <button 
+                                    className={styles.togglePassword}
+                                    type="button"
+                                    onClick={() => setShowPassword((prev) => !prev)}
+                                    >
+                                    {showPassword ? 'Hide Password' : 'Show Password'}  
+                                </button>
+                            </div>
 
                             <button className={styles.registerButton} type="submit">Register</button>
                         </form>

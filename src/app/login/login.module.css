@@ -208,6 +208,23 @@ body {
     background-color: #1558d6;
 }
 
+.togglePasswordContainer {
+    margin-top: -10px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: right;
+}
+  
+.togglePassword {
+    background: var(--light-gray);
+    border: 1px solid var(--dark-gray);
+    border-radius: 5px;
+    color: var(--dark-gray);
+    font-size: 17px;
+    cursor: pointer;
+    padding: 2px 10px;
+}
+
 .alert {
     position: fixed;
     top: 20px;
